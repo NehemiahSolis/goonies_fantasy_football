@@ -1,13 +1,11 @@
 goonies_fantasy_football
-==============================
+========================
 
 Data Analysis of the Goonies Fantasy Football League
 
 Project Organization
-------------
+--------------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
@@ -15,17 +13,13 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
+    ├── weekly statistics <- Jupyter notebooks and python files to calculate the weekly scores for the power rankings file. Naming convention is a number (for ordering),
+    │                         the creator's initials, and a short`-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+    ├── reports            <- Generated analysis as CSV, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
@@ -36,7 +30,9 @@ Project Organization
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
+    │   │   └── import_league.py
+    │   │   ├── owners.py
+
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
@@ -51,7 +47,6 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
-
---------
+---
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
