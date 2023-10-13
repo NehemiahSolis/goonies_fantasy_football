@@ -1,5 +1,8 @@
 from espn_api.football import League
 import pandas as pd
+# add path to import_league.py and owners.py from src/data
+import sys
+sys.path.append("src/data")
 import import_league as il
 import owners as own
 
