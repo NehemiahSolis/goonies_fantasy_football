@@ -4,6 +4,40 @@ import import_league as il
 
 league = il.import_league(league_id=201187, year=2023)
 
+""" 
+Documentation of all variables for Team Class
+
+team_id: int
+team_abbrev: str
+team_name: str
+division_id: str
+division_name: str
+wins: int
+losses: int
+ties: int
+points_for: int # total points for through out the season
+points_against: int # total points against through out the season
+acquisitions: int # number of acquisitions made by the team
+acquisition_budget_spent: int # budget spent on acquisitions 
+drops: int # number of drops made by the team
+trades: int # number of trades made by the team 
+owners: List[str] # array of owner ids
+streak_type: str # string of either WIN or LOSS
+streak_length: int # how long the streak is for streak type
+standing: int # standing before playoffs
+final_standing: int # final standing at end of season
+draft_projected_rank: int # projected rank after draft
+playoff_pct: int # teams projected chance to make playoffs
+logo_url: str
+roster: List[Player]
+
+# These 3 variables will have the same index and match on those indexes
+schedule: List[Team]
+scores: List[int]
+outcomes: List[str]
+
+"""
+
 def owners(league):
     """Returns a list of owners in the league
     Args:
@@ -13,7 +47,9 @@ def owners(league):
         dict: Dictionary of owners in the league
     """
     # Get the owners in the league and store them in a dictionary with the values being the team names
-    owners = {team.owner: team.team_name for team in league.teams}
+    owner_list = [team.owners for team in league.teams]
+    team_list = [team.team_name for team in league.teams]
+    owners = dict(zip(team_list, owner_list))
     
     return owners
 
@@ -66,7 +102,7 @@ def owner_schedule(league, owners, first_names=True):
 
     # In each week, replace the team name with the owner name
     for col in owners_df.columns[1:]:
-        owners_df[col] = owners_df[col].apply(lambda x: x.owner)
+        owners_df[col] = owners_df[col].apply(lambda x: x.owners)
 
     # For all names in the DataFrame, replace the first last name with the first name. Except if name is "Jacob Woodward", use "Woodward"
     if first_names:
@@ -95,4 +131,4 @@ def save_schedule(owners_df, path):
 if __name__ == "__main__":
     owners = owners(league)
     owners_df = owner_schedule(league, owners)
-    save_schedule(owners_df, "reports/owner_schedule.csv")
+    #save_schedule(owners_df, "reports/owner_schedule.csv")

@@ -8,6 +8,7 @@ import owners as own
 
 league = il.import_league(league_id=201187, year=2023)
 owners = own.owners(league)
+print(owners)
 
 
 def points_for(league, owners, first_names=True):
